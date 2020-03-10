@@ -1,12 +1,19 @@
 import React from 'react'
 import { NewsCard } from 'components/NewsCard'
+import { Information } from 'components/Information'
 
 export const Grid = () => {
   return (
-    <div>
-      <NewsCard anchor="#" title="News1" image="#" />
-      <NewsCard anchor="#" title="News2" image="#" />
-      <NewsCard anchor="#" title="News3" image="#" />
+    <div className="grid-box">
+      {Information.map((item) => {
+        return (
+          <>
+            <NewsCard anchor={item.anchor} title={item.title} picture={item.picture} />
+          </>
+        )
+
+      })}
+
     </div>
   )
 }

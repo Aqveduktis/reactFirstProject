@@ -5,7 +5,7 @@ import { Grid } from 'components/Grid'
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      <h1>News Website</h1>
       <Grid />
     </div>
   )

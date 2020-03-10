@@ -1,14 +1,14 @@
 import React from 'react'
-
+import { Information } from 'components/Information'
 
 export const NewsCard = (props) => {
 
     return (
-        <article>
+        <a href={props.anchor} className="news-card">
             <div>
-                <img src={props.image}></img>
-                <a href={props.anchor}>{props.title}</a>
+                <img src={props.picture} alt={props.title}></img>
+                <p>{props.title}</p>
             </div>
-        </article>
+        </a>
     )
 }
