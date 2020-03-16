@@ -1,7 +1,7 @@
 import React from 'react'
-import { useLayoutEffect, useState } from 'react';
-// import { Information } from 'components/Information'
+import { useLayoutEffect, useState, useEffect, useRef } from 'react';
 
+// import { Information } from 'components/Information'
 function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
     useLayoutEffect(() => {
@@ -17,9 +17,15 @@ function useWindowSize() {
 
 export const NewsCard = (props) => {
     const [width, height] = useWindowSize();
+    const [imageWidth, setImageWidth] = useState(0);
+    const ref = useRef(null);
+    useEffect(() => {
+        const width = ref.current ? ref.current.offsetWidth : 0;
+        setImageWidth(width)
+    }, [ref.current, width]);
 
     return (
-        <a href={props.anchor} className="news-card">
+        <a ref={ref} style={{height: imageWidth}} href={props.anchor} className="news-card">
             <div>
                 <img src={props.picture} alt={props.title}></img>
                 <p>{props.title}</p>
